@@ -98,6 +98,7 @@ class InteractiveManager:
 parser = ArgumentParser()
 parser.add_argument('--image', default='ust_cat.jpg')
 parser.add_argument('--model', default='saves/s2m.pth')
+parser.add_argument('--save_mask', default = 'predicted')
 parser.add_argument('--mask', default=None)
 args = parser.parse_args()
 
@@ -176,7 +177,8 @@ while 1:
     elif k == ord('s'):
         print('saved')
         os.makedirs('output', exist_ok=True)
-        cv2.imwrite('output/%s' % path.basename(args.mask), mask)
+        # cv2.imwrite('output/%s' % path.basename(args.mask), mask)
+        cv2.imwrite('output/' + args.save_mask + ".jpg", np_mask)
     elif k == ord('d'):
         display_comp = not display_comp
         manager.need_update = True
