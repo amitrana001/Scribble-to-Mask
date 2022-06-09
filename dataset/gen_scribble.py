@@ -1,8 +1,8 @@
 import numpy as np
 import cv2
 import bezier
-from dataset.tamed_robot import TamedRobot
-from dataset.mask_perturb import random_erode
+from tamed_robot import TamedRobot
+from mask_perturb import random_erode
 
 
 def disk_kernel(size):
